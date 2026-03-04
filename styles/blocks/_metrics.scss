@@ -1,0 +1,39 @@
+@use '../helpers' as *;
+
+.metrics{
+    &__list{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        &--4-cols{
+            grid-template-columns: repeat(4, 1fr);
+            align-items: center;
+        }
+
+    }
+    &__item{
+        --itemPadding:#{rem(50)};
+        display: flex;
+        flex-direction: column-reverse;
+        row-gap: rem(10);
+        padding: var(--itemPadding);
+
+        @include laptop{
+            --itemPadding:#{rem(40)};
+
+        }
+        &--center{
+            align-items: center;
+        }
+        &:first-child{
+            padding-left: 0;
+        }
+        &:not(:last-child){
+            border-right: var(--border);
+        }
+
+
+    }
+    &__sign{
+        color: var(--color-accent);
+    }
+}

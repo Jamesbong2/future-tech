@@ -1,0 +1,61 @@
+@use '../helpers' as *;
+.video-player{
+    position: relative;
+
+    &__video{
+        height: fluid(210,412);
+        width: 100%;
+        object-fit: cover;
+        border-radius: rem(12);
+        @include laptop {
+            border-radius: rem(10);
+        }
+    }
+    &__panel{
+        position: absolute;
+        inset: 0;
+        padding: rem(30);
+        display: flex;
+        justify-content: space-between;
+        align-items: end;
+        column-gap: rem(1);
+        transition-duration: var(--transition-duration);
+       
+        &::before{
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: linear-gradient(180deg, rgba(20, 20, 20, 0) 44.27%, #141414 100%);
+        }
+        *{
+            position: relative;
+            z-index: 1;
+        }
+    }
+    &__panel{
+        &--center{
+        justify-content: center;
+        align-items: center;
+        }
+        
+    }
+    &__play{
+        --size:#{rem(70)};
+        @include square(var(--size));
+        @include flex-center;
+        padding: 0;
+        background-color: transparent;
+        border: none;
+        color: var(--color-light);
+        @include hover {
+            color: var(--color-accent);
+        }
+        @include laptop {
+            --size:#{rem(50)};
+        }
+    }
+    &__duration{
+        color: var(--grey-50);
+
+    }
+}

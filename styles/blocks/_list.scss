@@ -1,0 +1,12 @@
+@use '../helpers' as *;
+
+.list{
+    &__item{
+        &:first-child{
+            border-top: var(--border);
+        }
+        &:not(:last-child){
+            border-bottom: var(--border);
+        }
+    }
+}

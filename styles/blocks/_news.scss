@@ -1,0 +1,26 @@
+@use '../helpers' as *;
+.news{
+    padding-block: fluid(40, 80);
+    display: grid;
+    row-gap: rem(60);
+    @include laptop{
+        row-gap: rem(40);
+    };
+    &__header{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        column-gap: rem(16);
+    }
+  
+    &__list{
+        display: grid;
+        grid-template-columns: repeat(auto-fit,minmax(rem(358),1fr));
+        column-gap: rem(30);
+        row-gap: rem(30);
+        align-items: center;
+        @include mobile-above {
+            row-gap: rem(30);
+        }
+    }
+}

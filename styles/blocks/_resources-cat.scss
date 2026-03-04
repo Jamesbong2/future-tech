@@ -1,0 +1,41 @@
+@use '../helpers' as *;
+
+.resources-cat{
+    background-color: var(--color-dark);
+    padding: rem(10);
+    border-radius: rem(10);
+    border: rem(1) solid var(--color-dark-15);
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    column-gap: rem(10);
+    
+   
+   
+    &__button{
+        font-size: rem(18);
+        color: var(--color-grey-60);
+        padding-block: rem(18);
+        padding-inline: rem(38);
+        background-color: var(--color-dark);
+        border: var(--border);
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: rem(10);
+        @include hover {
+            color: var(--color-accent);
+            border-color: var(--color-accent);
+        }
+        &.is-active{
+            color: var(--color-light);
+            background-color: var(--color-dark-15);
+        }
+        
+        @include laptop{
+            padding-inline: rem(24);
+            padding-block: rem(14);
+            font-size: rem(14);
+            border-radius: rem(8);
+        }
+    }
+}

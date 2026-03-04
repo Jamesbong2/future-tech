@@ -1,0 +1,25 @@
+@use '../helpers' as *;
+.resource-card{
+    --imageSize:#{fluid(358,471)};
+    padding-block: fluid(40,80);
+    display: grid;
+    row-gap: fluid(20,30);
+    &__image{
+        border-radius: rem(12);
+        width: var(--imageSize);
+        object-fit: cover;
+
+    }
+    &__info{
+        display: grid;
+        row-gap: rem(14);
+        @include laptop{
+            row-gap: rem(10);
+        }
+    }
+    &__buttons{
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        column-gap: rem(20);
+    }
+}

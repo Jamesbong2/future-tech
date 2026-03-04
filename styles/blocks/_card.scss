@@ -1,0 +1,164 @@
+@use '../helpers' as *;
+
+.card{
+    @include tablet-above{
+        display: grid;
+        grid-template-columns: 37.5% auto;
+    }
+    &__preview, &__body{
+        padding: rem(80);
+        @include laptop {
+            padding: rem(60);
+        }
+    }
+    &__preview{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding-left: 0;
+
+        @include tablet-above{
+            border-right: var(--border);
+        }
+       
+        @include tablet {
+            padding-right: 0;
+            padding-block: rem(50);
+            border-bottom: var(--border);
+        }
+        &-main{
+            display: grid;
+            row-gap: rem(40);
+           
+            @include laptop{
+                row-gap: rem(30);
+            }
+            @include tablet {
+                justify-content: start;
+            }
+        }
+        &-icon{
+            --iconFeatureSize : #{rem(80)};
+            @include square(var(--iconFeatureSize));
+            @include laptop{
+                --iconFeatureSize : #{rem(60)};
+            }
+            @include tablet{
+                --iconFeatureSize : #{rem(50)};
+            }
+        }
+        &-info{
+            display: grid;
+            row-gap: fluid(6,16);
+            &:has(.card__rating-view){
+                grid-template-columns: 1fr auto;
+                column-gap: rem(1);
+                .card__preview-title {
+                    @include fluid-text(20,40);
+                  }
+
+
+            }
+
+        }
+       
+    }
+    &__rating{
+        &-view{
+            align-items: center;
+        }
+    }
+    &__body{
+        padding-right: 0;
+        @include tablet{
+            padding-block: rem(30);
+            padding-inline: rem(16);
+        }
+    }
+    &__grid{
+        display: grid;
+        &--2-cols{
+           
+            gap: rem(20);
+          @include tablet-above{
+            
+            grid-template-columns: repeat(2,1fr);
+            
+
+          }
+        }
+        &--3-cols{
+            @include tablet-above {
+                grid-template-columns: repeat(3,1fr);
+                gap: rem(20);
+            }
+
+            @include laptop {
+                gap: rem(16);
+            }
+        }
+        &--3-cols-alt{
+            
+            gap: rem(30) rem(20);
+            @include laptop {
+                gap: rem(24) rem(16);
+               
+            }
+            @include mobile-above {
+                display: grid;
+            grid-template-columns: repeat(3,1fr);
+         
+
+            }
+        }
+        &--2-cols-alt{
+            
+            gap: rem(30) rem(20);
+            @include laptop {
+                gap: rem(24) rem(16);
+               
+            }
+            @include mobile-above {
+                display: grid;
+            grid-template-columns: auto 1fr;
+         
+
+            }
+        }
+    }
+    &__cell{
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+        row-gap: 4;
+        &:has(> *:only-child){
+            justify-content: center;
+        }
+        &:has(.card__cell-link){
+            display: grid;
+            grid-template-columns: 1fr auto;
+            grid-template-areas: 
+            'other link'
+            'other link';
+            align-items: center;
+            column-gap: rem(20);
+        }
+        &--wide{
+            grid-column: 1 / -1;
+        }
+        
+        &-image{
+            border-radius: rem(12);
+            width: 100%;
+            height: fluid(169,332);
+            object-fit: cover;
+            @include laptop{
+                border-radius: rem(10);
+            }
+
+        }
+        &-link{
+            grid-area: link;
+        }
+    }
+}

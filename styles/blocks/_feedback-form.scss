@@ -1,0 +1,37 @@
+@use '../helpers' as *;
+
+.feedback-form{
+    display: grid;
+    row-gap: fluid(20,50);
+        column-gap: rem(50);
+        
+    @include mobile-s-above{
+        grid-template-columns: repeat(2,1fr);
+    }
+       
+    &__cell{
+       
+       
+        @include laptop{
+            row-gap: rem(12);
+           
+        }
+        &--wide{
+            grid-column: -1/1;
+        }
+
+    }
+    &__actions{
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        column-gap: rem(1);
+        @include mobile-s{
+            flex-direction: column;
+            row-gap: rem(20);
+            align-items: stretch;
+        }
+    }
+   
+}

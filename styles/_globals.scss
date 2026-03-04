@@ -1,0 +1,106 @@
+@use 'helpers' as *;
+
+body{
+    @include fluid-text(14,18);
+    font-family: var(--font-family-base);
+    letter-spacing: -0.03em;
+    color: var(--color-grey-50);
+    background-color: var(--color-dark);
+    display: flex;
+    flex-direction: column;
+   
+}
+main{
+    flex-grow: 1;
+}
+h1, .h1,
+h2, .h2,
+h3, .h3,
+h4, .h4,
+h5, .h5,
+h6, .h6 {
+    color: var(--color-light);
+}
+
+h1, .h1,
+h2, .h2,
+h3, .h3{
+    font-family: var(--font-family-accent);
+}
+
+h1, .h1,
+h2, .h2,
+h4, .h4 {
+    font-weight: 500
+
+}
+
+h3, .h3,
+h5, .h5,
+h6, .h6 {
+    font-weight: 600
+}
+
+h1, .h1{
+   @include fluid-text(30,70);
+   line-height: 1.2;
+}
+h2, .h2{
+
+  @include fluid-text(28, 58);
+  line-height: 1.3;
+}
+h3, .h3{
+    @include fluid-text(24, 40)
+}
+h4, .h4{
+    @include fluid-text(18, 26)
+}
+h5, .h5{
+ 
+    @include fluid-text(18, 24)
+}
+h6, .h6{
+    @include fluid-text(16, 20)
+    
+}
+
+a,
+button,
+input,
+select,
+textarea,
+label,
+svg * {
+    transition-duration: var(--transition-duration);
+}
+
+a{
+    
+    color: inherit;
+    @include hover{
+        color: var(--color-accent);
+    }
+    
+    &[class] {
+        text-decoration: none;
+
+    }
+}
+:focus-visible{
+    outline: rem(2) dashed var(--color-light);
+    outline-offset: rem(4);
+    transition-duration: 0s !important;
+}
+a,
+button {
+  &[aria-label] {
+    position: relative;
+
+    &::before {
+      content: '';
+      @include abs-center;
+      @include square(rem(44));
+    }
+  }
+}

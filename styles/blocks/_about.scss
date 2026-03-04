@@ -1,0 +1,86 @@
+@use '../helpers' as *;
+
+.about{
+    padding-block: fluid(40, 120);
+    background-color: var(--color-dark-10);
+    &__inner{
+       display: grid;
+       row-gap: fluid(40,100);
+        
+    }
+    &__header{
+        display: grid;
+        grid-template-columns: auto 1fr;
+        align-items: center;
+        justify-items: start;
+        grid-template-areas: 
+        'icon info'
+        'icon desc'
+        ;
+        column-gap: fluid(20,80);
+        row-gap: rem(30);
+        @include laptop{
+            row-gap: rem(20);
+        }
+        @include mobile {
+            row-gap: rem(4);
+            grid-template-areas: 
+            'icon subtitle'
+            'title title'
+            'desc desc';
+        }
+    }
+    &__icon{
+        grid-area: icon;
+        width: fluid(60, 150);
+    }
+    &__info{
+        display: grid;
+        row-gap: rem(16);
+        grid-area: info;
+        @include laptop{
+            row-gap: rem(10);
+        } 
+        @include mobile{
+           
+
+            display: contents;
+        }
+
+    }
+    &__subtitle{
+        justify-self: start;
+        @include mobile{
+            grid-area: subtitle;
+        }
+    }
+    &__desc{
+        grid-area: desc;
+    }
+    &__list{
+        display: grid;
+        column-gap: rem(20);
+        row-gap: rem(20);
+        padding: rem(20);
+        background-color: var(--color-dark);
+        border-radius: rem(12);
+        @include laptop{
+            column-gap: rem(10);
+            padding: rem(10);
+            border-radius: rem(10);
+            row-gap: rem(10);
+        }
+        @include mobile-above{
+           
+            grid-template-columns: repeat(3,1fr);
+        }
+    }
+    &__title{
+        @include mobile{
+            grid-area: title;
+        }
+
+    }
+
+  
+}

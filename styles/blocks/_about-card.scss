@@ -1,0 +1,31 @@
+@use '../helpers' as *;
+.about-card {
+    
+    
+   
+    display: grid;
+    gap: rem(20);
+  
+    
+  
+   
+  
+    @include laptop {
+      
+      gap: rem(16);
+    }
+  
+    @include mobile {
+      
+      gap: rem(10);
+    }
+    &__title{
+        @include fluid-text(16,22);
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+      
+    }
+  }
+
+    

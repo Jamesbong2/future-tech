@@ -1,0 +1,50 @@
+@use '../helpers' as *;
+.blog-card{
+    display: grid;
+    grid-template-columns: 24% 1fr auto;
+    padding-block: fluid(40, 80);
+    column-gap: fluid(28, 50);
+    align-items: center;
+    @include tablet{
+        grid-template-columns: 1fr auto;
+        grid-template-areas: 
+        'author link'
+        'body body';
+        row-gap: rem(30);
+    }
+    &__author{
+        align-self: start;
+        display: flex;
+        column-gap: rem(11);
+        align-items: center;
+        @include tablet{
+            grid-area: author;
+        }
+       
+    }
+    &__body{
+        display: grid;
+        row-gap: fluid(20, 30);
+        @include tablet{
+            grid-area: body;
+        }
+    }
+    &__date{
+        color: var(--color-grey-60);
+    }
+    &__info{
+        display: grid;
+        row-gap: rem(10);
+        @include laptop{
+            row-gap: rem(6);
+
+        }
+        @include tablet{
+            row-gap: rem(4);
+        }
+    }
+    &__link{
+        grid-area: link;
+    }
+    
+}
