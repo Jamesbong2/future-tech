@@ -20,7 +20,9 @@
         align-items: end;
         column-gap: rem(1);
         transition-duration: var(--transition-duration);
-       
+        &:not(.is-active){
+            @include hide;
+        } 
         &::before{
             content: '';
             position: absolute;

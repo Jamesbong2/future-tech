@@ -121,8 +121,8 @@
                                 <div class="card__cell card__cell--wide">
                                     <div class="video-player">
                                         <video width="917" height="412" src="./videos/example.mp4" poster="./images/podcast/1.jpg" class="video-player__video"></video>
-                                        <div class="video-player__panel video-player__panel--center">
-                                            <button class="video-player__play" type="button" aria-label="Play video" title="Play video">
+                                        <div class="video-player__panel  video-player__panel--center">
+                                            <button class="video-player__play" type="button" aria-label="Play video" title="Play video" data-js-video-button>
                                                 <svg width="70" height="70" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                     <path fill-rule="evenodd" clip-rule="evenodd" d="M6.5625 35C6.5625 19.2944 19.2944 6.5625 35 6.5625C50.7056 6.5625 63.4375 19.2944 63.4375 35C63.4375 50.7056 50.7056 63.4375 35 63.4375C19.2944 63.4375 6.5625 50.7056 6.5625 35ZM47.4663 32.1318C49.7167 33.382 49.7167 36.6183 47.4663 37.8685L31.1248 46.9471C28.9377 48.1621 26.25 46.5807 26.25 44.0788V25.9215C26.25 23.4196 28.9377 21.8381 31.1248 23.0531L47.4663 32.1318Z" fill="white"/>
                                                 </svg>
@@ -220,8 +220,8 @@
                                 <div class="card__cell card__cell--wide">
                                     <div class="video-player">
                                         <video width="917" height="412" src="./videos/example.mp4" poster="./images/podcast/1.jpg" class="video-player__video"></video>
-                                        <div class="video-player__panel video-player__panel--center">
-                                            <button class="video-player__play" type="button" aria-label="Play video" title="Play video">
+                                        <div class="video-player__panel  video-player__panel--center">
+                                            <button class="video-player__play" type="button" aria-label="Play video" title="Play video" data-js-video-button>
                                                 <svg width="70" height="70" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                     <path fill-rule="evenodd" clip-rule="evenodd" d="M6.5625 35C6.5625 19.2944 19.2944 6.5625 35 6.5625C50.7056 6.5625 63.4375 19.2944 63.4375 35C63.4375 50.7056 50.7056 63.4375 35 63.4375C19.2944 63.4375 6.5625 50.7056 6.5625 35ZM47.4663 32.1318C49.7167 33.382 49.7167 36.6183 47.4663 37.8685L31.1248 46.9471C28.9377 48.1621 26.25 46.5807 26.25 44.0788V25.9215C26.25 23.4196 28.9377 21.8381 31.1248 23.0531L47.4663 32.1318Z" fill="white"/>
                                                 </svg>
@@ -296,12 +296,13 @@
           </header>
           <div class="section__body">
            <ul class="bordered-grid bordered-grid--3-cols container">
+            
             <li class="bordered-grid__item">
               <div class="video-card">
-                  <div class="video-card__player video-player">
-                      <video width="712" height="412" src="./videos/example.mp4" poster="./images/news/6.jpg" class="video-player__video"></video>
-                      <div class="video-player__panel">
-                          <button class="video-player__play" type="button" aria-label="Play video" title="Play video">
+                  <div class="video-card__player video-player" data-js-video-player>
+                      <video width="712" height="412" src="./videos/example.mp4" poster="./images/news/6.jpg" class="video-player__video" data-js-video-player-video></video>
+                      <div class="video-player__panel is-active" data-js-video-player-panel>
+                          <button class="video-player__play" type="button" aria-label="Play video" title="Play video" data-js-video-player-play-button>
                               <svg width="70" height="70" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
                                   <path fill-rule="evenodd" clip-rule="evenodd" d="M6.5625 35C6.5625 19.2944 19.2944 6.5625 35 6.5625C50.7056 6.5625 63.4375 19.2944 63.4375 35C63.4375 50.7056 50.7056 63.4375 35 63.4375C19.2944 63.4375 6.5625 50.7056 6.5625 35ZM47.4663 32.1318C49.7167 33.382 49.7167 36.6183 47.4663 37.8685L31.1248 46.9471C28.9377 48.1621 26.25 46.5807 26.25 44.0788V25.9215C26.25 23.4196 28.9377 21.8381 31.1248 23.0531L47.4663 32.1318Z" fill="white"/>
                               </svg>
@@ -333,10 +334,10 @@
             </li>
             <li class="bordered-grid__item">
               <div class="video-card">
-                  <div class="video-card__player video-player">
-                      <video width="712" height="412" src="./videos/example.mp4" poster="./images/news/6.jpg" class="video-player__video"></video>
-                      <div class="video-player__panel">
-                          <button class="video-player__play" type="button" aria-label="Play video" title="Play video">
+                  <div class="video-card__player video-player" data-js-video-player>
+                      <video width="712" height="412" src="./videos/example.mp4" poster="./images/news/6.jpg" class="video-player__video" data-js-video-player-video></video>
+                      <div class="video-player__panel is-active" data-js-video-player-panel>
+                          <button class="video-player__play" type="button" aria-label="Play video" title="Play video" data-js-video-player-play-button>
                               <svg width="70" height="70" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
                                   <path fill-rule="evenodd" clip-rule="evenodd" d="M6.5625 35C6.5625 19.2944 19.2944 6.5625 35 6.5625C50.7056 6.5625 63.4375 19.2944 63.4375 35C63.4375 50.7056 50.7056 63.4375 35 63.4375C19.2944 63.4375 6.5625 50.7056 6.5625 35ZM47.4663 32.1318C49.7167 33.382 49.7167 36.6183 47.4663 37.8685L31.1248 46.9471C28.9377 48.1621 26.25 46.5807 26.25 44.0788V25.9215C26.25 23.4196 28.9377 21.8381 31.1248 23.0531L47.4663 32.1318Z" fill="white"/>
                               </svg>
@@ -368,10 +369,10 @@
             </li>
             <li class="bordered-grid__item">
               <div class="video-card">
-                  <div class="video-card__player video-player">
-                      <video width="712" height="412" src="./videos/example.mp4" poster="./images/news/6.jpg" class="video-player__video"></video>
-                      <div class="video-player__panel">
-                          <button class="video-player__play" type="button" aria-label="Play video" title="Play video">
+                  <div class="video-card__player video-player" data-js-video-player>
+                      <video width="712" height="412" src="./videos/example.mp4" poster="./images/news/6.jpg" class="video-player__video" data-js-video-player-video></video>
+                      <div class="video-player__panel is-active" data-js-video-player-panel>
+                          <button class="video-player__play" type="button" aria-label="Play video" title="Play video" data-js-video-player-play-button>
                               <svg width="70" height="70" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
                                   <path fill-rule="evenodd" clip-rule="evenodd" d="M6.5625 35C6.5625 19.2944 19.2944 6.5625 35 6.5625C50.7056 6.5625 63.4375 19.2944 63.4375 35C63.4375 50.7056 50.7056 63.4375 35 63.4375C19.2944 63.4375 6.5625 50.7056 6.5625 35ZM47.4663 32.1318C49.7167 33.382 49.7167 36.6183 47.4663 37.8685L31.1248 46.9471C28.9377 48.1621 26.25 46.5807 26.25 44.0788V25.9215C26.25 23.4196 28.9377 21.8381 31.1248 23.0531L47.4663 32.1318Z" fill="white"/>
                               </svg>
@@ -403,10 +404,10 @@
             </li>
             <li class="bordered-grid__item">
               <div class="video-card">
-                  <div class="video-card__player video-player">
-                      <video width="712" height="412" src="./videos/example.mp4" poster="./images/news/6.jpg" class="video-player__video"></video>
-                      <div class="video-player__panel">
-                          <button class="video-player__play" type="button" aria-label="Play video" title="Play video">
+                  <div class="video-card__player video-player" data-js-video-player>
+                      <video width="712" height="412" src="./videos/example.mp4" poster="./images/news/6.jpg" class="video-player__video" data-js-video-player-video></video>
+                      <div class="video-player__panel is-active" data-js-video-player-panel>
+                          <button class="video-player__play" type="button" aria-label="Play video" title="Play video" data-js-video-player-play-button>
                               <svg width="70" height="70" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
                                   <path fill-rule="evenodd" clip-rule="evenodd" d="M6.5625 35C6.5625 19.2944 19.2944 6.5625 35 6.5625C50.7056 6.5625 63.4375 19.2944 63.4375 35C63.4375 50.7056 50.7056 63.4375 35 63.4375C19.2944 63.4375 6.5625 50.7056 6.5625 35ZM47.4663 32.1318C49.7167 33.382 49.7167 36.6183 47.4663 37.8685L31.1248 46.9471C28.9377 48.1621 26.25 46.5807 26.25 44.0788V25.9215C26.25 23.4196 28.9377 21.8381 31.1248 23.0531L47.4663 32.1318Z" fill="white"/>
                               </svg>
@@ -438,10 +439,10 @@
             </li>
             <li class="bordered-grid__item">
               <div class="video-card">
-                  <div class="video-card__player video-player">
-                      <video width="712" height="412" src="./videos/example.mp4" poster="./images/news/6.jpg" class="video-player__video"></video>
-                      <div class="video-player__panel">
-                          <button class="video-player__play" type="button" aria-label="Play video" title="Play video">
+                  <div class="video-card__player video-player" data-js-video-player>
+                      <video width="712" height="412" src="./videos/example.mp4" poster="./images/news/6.jpg" class="video-player__video" data-js-video-player-video></video>
+                      <div class="video-player__panel is-active" data-js-video-player-panel>
+                          <button class="video-player__play" type="button" aria-label="Play video" title="Play video" data-js-video-player-play-button>
                               <svg width="70" height="70" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
                                   <path fill-rule="evenodd" clip-rule="evenodd" d="M6.5625 35C6.5625 19.2944 19.2944 6.5625 35 6.5625C50.7056 6.5625 63.4375 19.2944 63.4375 35C63.4375 50.7056 50.7056 63.4375 35 63.4375C19.2944 63.4375 6.5625 50.7056 6.5625 35ZM47.4663 32.1318C49.7167 33.382 49.7167 36.6183 47.4663 37.8685L31.1248 46.9471C28.9377 48.1621 26.25 46.5807 26.25 44.0788V25.9215C26.25 23.4196 28.9377 21.8381 31.1248 23.0531L47.4663 32.1318Z" fill="white"/>
                               </svg>
@@ -473,10 +474,115 @@
             </li>
             <li class="bordered-grid__item">
               <div class="video-card">
-                  <div class="video-card__player video-player">
-                      <video width="712" height="412" src="./videos/example.mp4" poster="./images/news/6.jpg" class="video-player__video"></video>
-                      <div class="video-player__panel">
-                          <button class="video-player__play" type="button" aria-label="Play video" title="Play video">
+                  <div class="video-card__player video-player" data-js-video-player>
+                      <video width="712" height="412" src="./videos/example.mp4" poster="./images/news/6.jpg" class="video-player__video" data-js-video-player-video></video>
+                      <div class="video-player__panel is-active" data-js-video-player-panel>
+                          <button class="video-player__play" type="button" aria-label="Play video" title="Play video" data-js-video-player-play-button>
+                              <svg width="70" height="70" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                  <path fill-rule="evenodd" clip-rule="evenodd" d="M6.5625 35C6.5625 19.2944 19.2944 6.5625 35 6.5625C50.7056 6.5625 63.4375 19.2944 63.4375 35C63.4375 50.7056 50.7056 63.4375 35 63.4375C19.2944 63.4375 6.5625 50.7056 6.5625 35ZM47.4663 32.1318C49.7167 33.382 49.7167 36.6183 47.4663 37.8685L31.1248 46.9471C28.9377 48.1621 26.25 46.5807 26.25 44.0788V25.9215C26.25 23.4196 28.9377 21.8381 31.1248 23.0531L47.4663 32.1318Z" fill="white"/>
+                              </svg>
+                                  
+                          </button>
+                          <div class="video-duration">
+                              2.30 min
+                          </div>
+                      </div>
+                  </div>
+                  <div class="video-card__body">
+                      <div class="video-card__info">
+                        <h3 class="video-card__title h5">
+                          Blockchain Explained: A Revolution in Finance
+
+                      </h3>
+                      <p class="video-card__desc">
+                          Delve into the world of blockchain technology and its transformative impact on the financial industry.
+                      </p>
+                      </div>
+                      <a href="#" class="video-card__link button">
+                        <span class="icon icon--arrow-yellow">
+                          Listen Podcast
+                        </span>
+                      </a>
+                  </div>
+              </div>
+              
+            </li>
+            <li class="bordered-grid__item">
+              <div class="video-card">
+                  <div class="video-card__player video-player" data-js-video-player>
+                      <video width="712" height="412" src="./videos/example.mp4" poster="./images/news/6.jpg" class="video-player__video" data-js-video-player-video></video>
+                      <div class="video-player__panel is-active" data-js-video-player-panel>
+                          <button class="video-player__play" type="button" aria-label="Play video" title="Play video" data-js-video-player-play-button>
+                              <svg width="70" height="70" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                  <path fill-rule="evenodd" clip-rule="evenodd" d="M6.5625 35C6.5625 19.2944 19.2944 6.5625 35 6.5625C50.7056 6.5625 63.4375 19.2944 63.4375 35C63.4375 50.7056 50.7056 63.4375 35 63.4375C19.2944 63.4375 6.5625 50.7056 6.5625 35ZM47.4663 32.1318C49.7167 33.382 49.7167 36.6183 47.4663 37.8685L31.1248 46.9471C28.9377 48.1621 26.25 46.5807 26.25 44.0788V25.9215C26.25 23.4196 28.9377 21.8381 31.1248 23.0531L47.4663 32.1318Z" fill="white"/>
+                              </svg>
+                                  
+                          </button>
+                          <div class="video-duration">
+                              2.30 min
+                          </div>
+                      </div>
+                  </div>
+                  <div class="video-card__body">
+                      <div class="video-card__info">
+                        <h3 class="video-card__title h5">
+                          Blockchain Explained: A Revolution in Finance
+
+                      </h3>
+                      <p class="video-card__desc">
+                          Delve into the world of blockchain technology and its transformative impact on the financial industry.
+                      </p>
+                      </div>
+                      <a href="#" class="video-card__link button">
+                        <span class="icon icon--arrow-yellow">
+                          Listen Podcast
+                        </span>
+                      </a>
+                  </div>
+              </div>
+              
+            </li>
+            <li class="bordered-grid__item">
+              <div class="video-card">
+                  <div class="video-card__player video-player" data-js-video-player>
+                      <video width="712" height="412" src="./videos/example.mp4" poster="./images/news/6.jpg" class="video-player__video" data-js-video-player-video></video>
+                      <div class="video-player__panel is-active" data-js-video-player-panel>
+                          <button class="video-player__play" type="button" aria-label="Play video" title="Play video" data-js-video-player-play-button>
+                              <svg width="70" height="70" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                  <path fill-rule="evenodd" clip-rule="evenodd" d="M6.5625 35C6.5625 19.2944 19.2944 6.5625 35 6.5625C50.7056 6.5625 63.4375 19.2944 63.4375 35C63.4375 50.7056 50.7056 63.4375 35 63.4375C19.2944 63.4375 6.5625 50.7056 6.5625 35ZM47.4663 32.1318C49.7167 33.382 49.7167 36.6183 47.4663 37.8685L31.1248 46.9471C28.9377 48.1621 26.25 46.5807 26.25 44.0788V25.9215C26.25 23.4196 28.9377 21.8381 31.1248 23.0531L47.4663 32.1318Z" fill="white"/>
+                              </svg>
+                                  
+                          </button>
+                          <div class="video-duration">
+                              2.30 min
+                          </div>
+                      </div>
+                  </div>
+                  <div class="video-card__body">
+                      <div class="video-card__info">
+                        <h3 class="video-card__title h5">
+                          Blockchain Explained: A Revolution in Finance
+
+                      </h3>
+                      <p class="video-card__desc">
+                          Delve into the world of blockchain technology and its transformative impact on the financial industry.
+                      </p>
+                      </div>
+                      <a href="#" class="video-card__link button">
+                        <span class="icon icon--arrow-yellow">
+                          Listen Podcast
+                        </span>
+                      </a>
+                  </div>
+              </div>
+              
+            </li>
+            <li class="bordered-grid__item">
+              <div class="video-card">
+                  <div class="video-card__player video-player" data-js-video-player>
+                      <video width="712" height="412" src="./videos/example.mp4" poster="./images/news/6.jpg" class="video-player__video" data-js-video-player-video></video>
+                      <div class="video-player__panel is-active" data-js-video-player-panel>
+                          <button class="video-player__play" type="button" aria-label="Play video" title="Play video" data-js-video-player-play-button>
                               <svg width="70" height="70" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
                                   <path fill-rule="evenodd" clip-rule="evenodd" d="M6.5625 35C6.5625 19.2944 19.2944 6.5625 35 6.5625C50.7056 6.5625 63.4375 19.2944 63.4375 35C63.4375 50.7056 50.7056 63.4375 35 63.4375C19.2944 63.4375 6.5625 50.7056 6.5625 35ZM47.4663 32.1318C49.7167 33.382 49.7167 36.6183 47.4663 37.8685L31.1248 46.9471C28.9377 48.1621 26.25 46.5807 26.25 44.0788V25.9215C26.25 23.4196 28.9377 21.8381 31.1248 23.0531L47.4663 32.1318Z" fill="white"/>
                               </svg>

@@ -3,6 +3,7 @@
 .video-card{
     display: grid;
     row-gap: rem(30);
+    padding: rem(30);
     @include laptop{
         row-gap: rem(20);
     }

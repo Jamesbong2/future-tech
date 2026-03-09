@@ -52,7 +52,7 @@ function updateUi(currentButton) {
 
 
 
-export function innitTabs () {
+export function initTabs () {
     
 
 

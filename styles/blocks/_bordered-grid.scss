@@ -7,7 +7,7 @@
    
     
   &--3-cols {
-    
+    --ItemPaddingX: #{rem(50)};
     --columns:3;
     .video-card__body {
       display: grid;
@@ -105,7 +105,7 @@
     }
     .bordered-grid__item{
       &:nth-child(odd){
-       padding-right: var(--ItemPaddingX);
+      
        padding-left: 0;
        border-right: var(--border);
       }

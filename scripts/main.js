@@ -1,5 +1,6 @@
 import {initHeader} from '../scripts/Header.js'
-import {innitTabs} from '../scripts/Tabs.js'
+import {initTabs} from '../scripts/Tabs.js'
+import { initVideoPlayer } from './VideoPlayer.js'
 initHeader()
-innitTabs()
-
+initTabs()
+initVideoPlayer()
