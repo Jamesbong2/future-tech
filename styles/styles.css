@@ -351,6 +351,10 @@ svg * {
   }
 }
 
+html.is-lock {
+  overflow: hidden;
+}
+
 body {
   font-size: clamp(0.875rem, 0.8112745098rem + 0.2614379085vw, 1.125rem);
   font-family: var(--font-family-base);
@@ -1501,6 +1505,9 @@ button[aria-label]::before {
   font-weight: 500;
   background-color: var(--color-dark-10);
   pointer-events: none;
+}
+.tabs__content:not(.is-active) {
+  display: none;
 }
 .tabs__content:focus-visible {
   outline-offset: -1rem;

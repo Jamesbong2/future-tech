@@ -328,13 +328,16 @@
               Blog category title
             </h3>
             <header class="tabs__header">
-              <div class="tabs__buttons container" role="tablist"aria-labelledby="blog-category-title">
+              <div class="tabs__buttons container" role="tablist"aria-labelledby="blog-category-title" data-js-tabs>
                 <button 
                 type="button" 
                 class="tabs__button is-active"
                 role="tab"
-                aria-selected="false"
-
+                aria-selected="true"
+                tabindex="0"
+                id="tab-1"
+                aria-controls="tabpanel-1"
+                data-js-tabs-button
                 >
                 All
 
@@ -345,19 +348,23 @@
                 role="tab"
                 aria-selected="false"
                 tabindex="-1"
-
+                id="tab-2"
+                aria-controls="tabpanel-2"
+                data-js-tabs-button
                 >
                 Quantum Computing
 
                 </button>
-                </button>
+                
                 <button 
                 type="button" 
                 class="tabs__button"
                 role="tab"
                 aria-selected="false"
                 tabindex="-1"
-
+                id="tab-3"
+                aria-controls="tabpanel-3"
+                data-js-tabs-button
                 >
                 AI Ethics
 
@@ -368,7 +375,9 @@
                 role="tab"
                 aria-selected="false"
                 tabindex="-1"
-
+                id="tab-4"
+                aria-controls="tabpanel-4"
+                data-js-tabs-button
                 >
                 Space Exploration
 
@@ -379,7 +388,9 @@
                 role="tab"
                 aria-selected="false"
                 tabindex="-1"
-
+                id="tab-5"
+                aria-controls="tabpanel-5"
+                data-js-tabs-button
                 >
                 Biotechnology
 
@@ -390,7 +401,9 @@
                 role="tab"
                 aria-selected="false"
                 tabindex="-1"
-
+                id="tab-6"
+                aria-controls="tabpanel-6"
+                data-js-tabs-button
                 >
                 Renewable Energy
 
@@ -400,7 +413,7 @@
               </div>
             </header>
             <div class="tabs__body">
-              <div class="tabs__content"> 
+              <div class="tabs__content is-active" id="tabpanel-1" aria-labelledby="tab-1" tabindex="0" data-js-tabs-content> 
                 <ul class="list">
                   <li class="list__item">
                     <article class="blog-card container">
@@ -630,6 +643,9 @@
                   
                 </ul>
               </div>  
+              <div class="tabs__content" id="tabpanel-2" aria-labelledby="tab-2" tabindex="-1" data-js-tabs-content>
+                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+              </div>
             </div>
           </div>
           

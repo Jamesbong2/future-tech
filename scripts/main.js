@@ -1,2 +1,5 @@
-import { initHeader } from "./Header.js";
+import {initHeader} from '../scripts/Header.js'
+import {innitTabs} from '../scripts/Tabs.js'
 initHeader()
+innitTabs()
+
