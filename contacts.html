@@ -180,7 +180,7 @@
                           </div>
                         </div>
                         <div class="card__body">
-                           <form action="" class="feedback-form">
+                           <form action="" class="feedback-form" data-js-feedback-form>
                                 <div class="feedback-form__cell field">
                                     <label for="firstName" class="field__label">First Name <span class="field__required-star" aria-hidden="true">*</span> </label>
                                     <input  
@@ -189,6 +189,7 @@
                                     type="text"
                                     placeholder="Ivan"
                                     required
+                                    name="firstName"
                                     >
                                 </div>
                                 <div class="feedback-form__cell field">
@@ -198,6 +199,7 @@
                                     id="lastName" 
                                     type="text"
                                     placeholder="Novikov"
+                                    name="lastName"
                                    
                                     >
                                 </div>
@@ -209,12 +211,13 @@
                                     type="email"
                                     placeholder="ivannovi12ko@gmail.com"
                                     required
+                                    name="email"
                                     >
                                 </div>
                                 <div class="feedback-form__cell field">
                                     <label for="phoneNumber" class="field__label">Phone Number</label>
                                     <div class="field__body">
-                                        <div class="select">
+                                        <div class="select" data-js-select>
                                             <label 
                                                 for="phoneNumberPrefix"
                                                 id="select-number-prefix-select-label" 
@@ -225,10 +228,13 @@
                                                 id="phoneNumberPrefix" 
                                                 class="select__original-control field__control"
                                                 tabindex="-1"
+                                                name = "phoneNumberPrefix"
+                                                data-js-select-original-control
+                                                
                                             
                                             >
-                                                <option selected value="+7">+7</option>
-                                                <option value="+1">+1</option>
+                                                <option  value="+7">+7</option>
+                                                <option selected value="+1">+1</option>
                                                 <option value="+3">+3</option>
                                                 <option value="+5">+5</option>
                                             </select>
@@ -241,6 +247,7 @@
                                                     aria-expanded="false"
                                                     aria-haspopup="listbox"
                                                     aria-controls="phone-number-prefix-select-dropdown"
+                                                    data-js-select-button
                                                 >
                                                     +7
                                                 </div>
@@ -250,16 +257,17 @@
                                                     id="phone-number-prefix-select-dropdown"
                                                     role="listbox"
                                                     aria-selected="true"
+                                                    data-js-select-dropdown
                                                     
                                                 >
-                                                    <div id="select-number-prefix-select-option-1"  aria-selected="false" class="select__option is-selected" role="option">+7</div>
-                                                    <div  id="select-number-prefix-select-option-2"  aria-selected="false" class="select__option" role="option">+1</div>
-                                                    <div  id="select-number-prefix-select-option-3"  aria-selected="false" class="select__option" role="option">+3</div>
-                                                    <div  id="select-number-prefix-select-option-4"  aria-selected="false" class="select__option" role="option">+5</div>
+                                                    <div id="select-number-prefix-select-option-1"  aria-selected="false" class="select__option is-selected" role="option" data-js-select-option>+7</div>
+                                                    <div  id="select-number-prefix-select-option-2"  aria-selected="false" class="select__option" role="option" data-js-select-option>+1</div>
+                                                    <div  id="select-number-prefix-select-option-3"  aria-selected="false" class="select__option" role="option" data-js-select-option>+3</div>
+                                                    <div  id="select-number-prefix-select-option-4"  aria-selected="false" class="select__option" role="option" data-js-select-option>+5</div>
                                                 </div>
                                             </div>
                                         </div>
-                                        <input id="phoneNumber" data-js-input-mask="(000) 000-00-00" placeholder="(999) 999-99-99" class="field__control">
+                                        <input name="phonNumber" id="phoneNumber" data-js-input-mask="(000) 000-00-00" placeholder="(999) 999-99-99" class="field__control">
                                     </div>
                                 </div>
                                 <div class="feedback-form__cell field feedback-form__cell--wide  field">
@@ -270,19 +278,20 @@
                                     type="text"
                                     placeholder="Hello"
                                     required
+                                    name="message"
                                     ></textarea>
                                 </div>
                                 <div class="feedback-form__cell field feedback-form__cell--wide">
                                     <div class="feedback-form__actions">
                                         <div class="feedback-form__agreement">
                                             <label class="checkbox">
-                                                <input class="checkbox__input" required type="checkbox">
+                                                <input name="agreement" class="checkbox__input" required type="checkbox">
                                                 <span class="checkbox__label">
                                                     I agree with Terms of Use and Privacy Policy
                                                 </span>
                                             </label>
                                         </div>
-                                        <button type="submit" class="feedback-form__submit-button button button--accent">
+                                        <button type="submit" class="feedback-form__submit-button button button--accent" data-js-feedback-form-button>
                                             Send
                                         </button>
                                     </div>

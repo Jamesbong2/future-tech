@@ -2451,6 +2451,9 @@ button[aria-label]::before {
   }
 }
 .select__dropdown {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
   transition-duration: var(--transition-duration);
   position: absolute;
   display: grid;
@@ -2464,6 +2467,11 @@ button[aria-label]::before {
   border: var(--border);
   border-radius: 0.375rem;
   top: calc(100% + 0.25rem);
+}
+.select__dropdown.is-expanded {
+  pointer-events: auto;
+  opacity: 1;
+  visibility: visible;
 }
 .select__option {
   display: flex;

@@ -45,6 +45,8 @@
     }
 
     &__dropdown{
+        @include hide;
+        pointer-events: none;
         transition-duration:var(--transition-duration);
         position: absolute;
         display: grid;
@@ -58,7 +60,10 @@
         border: var(--border);
         border-radius: rem(6);
         top: calc(100% + #{rem(4)});
-      
+        &.is-expanded {
+            pointer-events: auto;
+            @include show;
+          }
     }
     &__option{
         display: flex;
