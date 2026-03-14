@@ -10,31 +10,17 @@ const formElement = document.querySelector('[data-js-feedback-form]')
 
 const formElements = [...formElement.elements]
 const errors = {
-    firstName : {
-        valueMissing : 'Имя обязательно к заполнению',
-        tooShort : 'Имя слишком короткое',
-        tooLong : 'Имя слишком длинное'
+    
+        valueMissing : 'Поле обязательно к заполнению',
+        tooShort : 'Поле слишком короткое',
+        tooLong : 'Поле слишком длинное',
+        patternMismatch: 'Поле не соответствует заданному формату',
+        typeMismatch: 'Введите корректное значение',
 
-    },
-    lastName : {
-        valueMissing : 'Фамилия обязательна к заполнению',
-        tooShort : 'Фамилия слишком короткая',
-        tooLong : 'Фамилия слишком длинная'
-    },
-    email : {
-        valueMissing : 'Email обязательно к заполнению',
-        typeMismatch: 'Введите  корректный email',
-
-    },
-    message : {
-        valueMissing : 'Сообщение обязательно к заполнению',
-        tooShort : 'Сообщение слишком короткое',
-        tooLong : 'Сообщение  слишком длинное'
-    },
-    phonNumber : {
-        patternMismatch : 'Поле не соответствует патерну',
-        valueMissing : 'Номер телефона  обязателен  к заполнению',
-    }
+  
+    
+    
+  
 
 
 }
@@ -75,14 +61,15 @@ function validate(currentField) {
   
 
     if (!isValid) {
-        const fieldErrors = errors[currentField.name]
+       
 
-        for (const key in fieldErrors) {
+        for (const key in errors) {
             if (currentField.validity[key]) {
                 if (key === 'patternMismatch') {
-                    message = currentField.title || fieldErrors[key]
+                    console.log(currentField.title)
+                    message = currentField.title || errors[key]
                 } else {
-                    message = fieldErrors[key]
+                    message = errors[key]
                 }
                 break
             }
@@ -117,47 +104,32 @@ async function mockSendData (data) {
 
 }
 
-formElements.forEach((element) => {
-   element.addEventListener('blur', (event) => {
-        const currentField = event.currentTarget
-        console.log(currentField.validity)
-       
-        validate(currentField)
-      
-      
+formElement.addEventListener('blur',(event) => {
+    const field = event.target
 
+    validate(field)
 
-    })
-    element.addEventListener('input',(event) => {
-        const currentField = event.currentTarget
-        
-        const fieldElements = getFieldElements(currentField)
-        if (!fieldElements) return
-        
-        const { fieldParent  } = fieldElements
-        
-        
-        if (fieldParent.classList.contains('is-invalid')) {
-          validate(currentField)
-        }
-
-    })
-
-   
+},true)
+formElement.addEventListener('input',(event) => {
+    const field = event.target
+ 
+    validate(field)
 
 })
+
 
 formElement.addEventListener('submit', (event) => {
     event.preventDefault()
 
     let isFormValid = true
 
-    formElements.forEach((element) => {
+    for (const element of formElement.elements) {
         const valid = validate(element)
         if (!valid) {
             isFormValid = false
         }
-    })
+    }
+
 
     if (!isFormValid) return
 
