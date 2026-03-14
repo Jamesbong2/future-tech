@@ -455,6 +455,11 @@ a[class] {
   transition-duration: 0s !important;
 }
 
+a:disabled,
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
 a[aria-label],
 button[aria-label] {
   position: relative;
@@ -2306,6 +2311,9 @@ button[aria-label]::before {
   }
 }
 
+.field.is-invalid .field__control:focus-visible {
+  outline-color: red;
+}
 .field {
   font-size: 1.125rem;
   display: flex;
@@ -2372,6 +2380,9 @@ button[aria-label]::before {
   .field__control::placeholder {
     font-size: 0.875rem;
   }
+}
+.field__control:has(.is-invalid) .field__control:focus-visible {
+  outline-color: red;
 }
 .field textarea.field__control {
   resize: vertical;
@@ -2586,6 +2597,17 @@ button[aria-label]::before {
     row-gap: 1.25rem;
     align-items: stretch;
   }
+}
+.feedback-form__error {
+  color: red;
+}
+
+.success-message {
+  color: green;
+}
+.success-message:not(.is-active) {
+  opacity: 0;
+  visibility: hidden;
 }
 
 .accordion__details[open] .accordion__title::before, .accordion__details[open] .accordion__title::after {

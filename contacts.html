@@ -180,8 +180,8 @@
                           </div>
                         </div>
                         <div class="card__body">
-                           <form action="" class="feedback-form" data-js-feedback-form>
-                                <div class="feedback-form__cell field">
+                           <form action="" class="feedback-form" data-js-feedback-form novalidate>
+                                <div class="feedback-form__cell field" data-js-feedback-form-field>
                                     <label for="firstName" class="field__label">First Name <span class="field__required-star" aria-hidden="true">*</span> </label>
                                     <input  
                                     class="field__control" 
@@ -190,20 +190,30 @@
                                     placeholder="Ivan"
                                     required
                                     name="firstName"
+                                    aria-describedby="firstName-error"
+                                    minlength="4"
+                                    maxlength="11"
+                                    title="Имя должно содержать от 4 до 11 символов"
                                     >
+                                    <span id="firstName-error" class="feedback-form__error" data-js-feedback-form-error></span>
                                 </div>
-                                <div class="feedback-form__cell field">
-                                    <label for="lastName" class="field__label">Last Name</label>
+                                <div class="feedback-form__cell field" data-js-feedback-form-field>
+                                    <label for="lastName" class="field__label">Last Name <span class="field__required-star" aria-hidden="true">*</span> </label>
                                     <input  
                                     class="field__control" 
                                     id="lastName" 
                                     type="text"
                                     placeholder="Novikov"
                                     name="lastName"
-                                   
+                                    required
+                                    aria-describedby="lastName-error"
+                                    minlength="4"
+                                    maxlength="11"
+                                    title="Фамилия должна содержать от 4 до 11 символов"
                                     >
+                                    <span id="lastName-error" class="feedback-form__error" data-js-feedback-form-error></span>
                                 </div>
-                                <div class="feedback-form__cell field">
+                                <div class="feedback-form__cell field" data-js-feedback-form-field>
                                     <label for="email" class="field__label">Email <span class="field__required-star" aria-hidden="true">*</span> </label>
                                     <input  
                                     class="field__control" 
@@ -212,10 +222,14 @@
                                     placeholder="ivannovi12ko@gmail.com"
                                     required
                                     name="email"
+                                    aria-describedby="email-error"
+
+                                    title="Введите email в формате name@example.com"
                                     >
+                                    <span id="email-error" class="feedback-form__error" data-js-feedback-form-error></span>
                                 </div>
-                                <div class="feedback-form__cell field">
-                                    <label for="phoneNumber" class="field__label">Phone Number</label>
+                                <div class="feedback-form__cell field" data-js-feedback-form-field>
+                                    <label for="phonNumber" class="field__label">Phone Number</label>
                                     <div class="field__body">
                                         <div class="select" data-js-select>
                                             <label 
@@ -267,10 +281,23 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <input name="phonNumber" id="phoneNumber" data-js-input-mask="(000) 000-00-00" placeholder="(999) 999-99-99" class="field__control">
+                                        <input 
+                                        name="phonNumber" 
+                                        required
+                                        id="phoneNumber" 
+                                        data-js-input-mask="(000) 000-00-00" 
+                                        placeholder="(999) 999-99-99" 
+                                        class="field__control"
+                                        aria-describedby="phonNumber-error"
+                                        pattern="\(\d{3}\) \d{3}-\d{2}-\d{2}"
+                                        title="Введите номер в формате (999) 999-99-99"
+                                        >
+                                        
+                                        
                                     </div>
+                                    <span id="phonNumber-error" class="feedback-form__error" data-js-feedback-form-error></span>
                                 </div>
-                                <div class="feedback-form__cell field feedback-form__cell--wide  field">
+                                <div class="feedback-form__cell field feedback-form__cell--wide  field" data-js-feedback-form-field>
                                     <label for="message" class="field__label">Message <span class="field__required-star" aria-hidden="true">*</span> </label>
                                     <textarea  
                                     class="field__control" 
@@ -279,7 +306,12 @@
                                     placeholder="Hello"
                                     required
                                     name="message"
+                                    aria-describedby="message-error"
+                                    minlength="12"
+                                    maxlength="60"
+                                    title="Сообщение должно содержать от 12 до 60 символов"
                                     ></textarea>
+                                    <span id="message-error" class="feedback-form__error" data-js-feedback-form-error></span>
                                 </div>
                                 <div class="feedback-form__cell field feedback-form__cell--wide">
                                     <div class="feedback-form__actions">
@@ -297,6 +329,9 @@
                                     </div>
                                 </div>
                            </form>
+                           <span class="success-message" data-js-feedback-form-sucess-message>
+                            Спасибо, ваше сообщение отправлено!
+                           </span>
                         </div>
       
                       </div>
