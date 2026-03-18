@@ -1,0 +1,78 @@
+{
+    "categories": [
+      {
+        "id": 1,
+        "slug": "all",
+        "label": "All"
+      },
+      {
+        "id": 2,
+        "slug": "quantum-computing",
+        "label": "Quantum Computing"
+      },
+      {
+        "id": 3,
+        "slug": "ai-ethics",
+        "label": "AI Ethics"
+      },
+      {
+        "id": 4,
+        "slug": "space-exploration",
+        "label": "Space Exploration"
+      },
+      {
+        "id": 5,
+        "slug": "biotechnology",
+        "label": "Biotechnology"
+      },
+      {
+        "id": 6,
+        "slug": "renewable-energy",
+        "label": "Renewable Energy"
+      }
+    ],
+    "posts": [
+      {
+        "id": 1,
+        "author": "John Techson",
+        "topic": "Quantum Computing",
+        "category": "quantum-computing",
+        "authorImage": "./images/blog/1.png",
+        "date": "2023-10-15",
+        "title": "The Quantum Leap in Computing",
+        "description": "Explore the revolution in quantum computing, its applications, and its potential impact on various industries.",
+        "likes": "32k",
+        "comments": 50,
+        "shares": 20,
+        "link": "#"
+      },
+      {
+        "id": 2,
+        "author": "Sarah Ethicist",
+        "topic": "AI Ethics",
+        "category": "ai-ethics",
+        "authorImage": "./images/blog/2.png",
+        "date": "2023-11-05",
+        "title": "The Ethical Dilemmas of AI",
+        "description": "A deep dive into ethical challenges posed by AI, including bias, privacy, and transparency.",
+        "likes": "32k",
+        "comments": 72,
+        "shares": 18,
+        "link": "#"
+      },
+      {
+        "id": 3,
+        "author": "Astronomer X",
+        "topic": "Space Exploration",
+        "category": "space-exploration",
+        "authorImage": "./images/blog/3.png",
+        "date": "2023-12-10",
+        "title": "The Mars Colonization Challenge",
+        "description": "Exploring the technical and logistical challenges of human colonization on Mars.",
+        "likes": "20k",
+        "comments": 31,
+        "shares": 12,
+        "link": "#"
+      }
+    ]
+  }
