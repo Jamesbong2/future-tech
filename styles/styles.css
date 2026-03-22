@@ -1414,8 +1414,10 @@ button[aria-label]::before {
     row-gap: 0.25rem;
   }
 }
-.blog-card__link {
-  grid-area: link;
+@media (width <= 63.99875rem) {
+  .blog-card__link {
+    grid-area: link;
+  }
 }
 
 .person-card {

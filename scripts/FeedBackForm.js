@@ -1,8 +1,6 @@
 
-export function initFeedbackForm () {
-    const formElement = document.querySelector('[data-js-feedback-form]')
-    if(!formElement) return 
 
+   
 
 const errors = {
     
@@ -98,7 +96,11 @@ async function mockSendData (data) {
     }
 
 }
+export function initFeedbackForm () {
+    const formElement = document.querySelector('[data-js-feedback-form]')
+    if(!formElement) return 
 
+    
 formElement.addEventListener('blur',(event) => {
     const field = event.target
 
@@ -141,5 +143,5 @@ formElement.addEventListener('submit', (event) => {
     mockSendData(data)
 })
 
-
 }
+

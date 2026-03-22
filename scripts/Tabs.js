@@ -1,97 +1,126 @@
+export function initTabs(rootElement, onTabChange) {
+  if (!rootElement) return
 
-const buttonElements = [...document.querySelectorAll('[data-js-tabs-button]')]
-const panelElements = [...document.querySelectorAll('[data-js-tabs-content]')]
+  const buttonElements = [...rootElement.querySelectorAll('[data-js-tabs-button]')]
+  const panelElements = [...rootElement.querySelectorAll('[data-js-tabs-content]')]
 
-const state = {
-  activeIndex: buttonElements.findIndex(buttonElement =>
-    buttonElement.classList.contains('is-active')
-  )
-}
+  if (!buttonElements.length || !panelElements.length) return
 
-if (state.activeIndex === -1) {
-  state.activeIndex = 0
-}
-
-
-function updateUi(currentButton) {
-    const nextIndex = buttonElements.findIndex(
-      buttonElement => buttonElement === currentButton
+  const state = {
+    activeIndex: buttonElements.findIndex((buttonElement) =>
+      buttonElement.classList.contains('is-active')
     )
-  
+  }
+
+  if (state.activeIndex === -1) {
+    state.activeIndex = 0
+  }
+
+  function getButtonIndex(currentButton) {
+    return buttonElements.findIndex((buttonElement) => buttonElement === currentButton)
+  }
+
+  function getActivePanel() {
+    return panelElements[state.activeIndex]
+  }
+
+  function updateUi(currentButton) {
+    const nextIndex = getButtonIndex(currentButton)
+
     if (nextIndex === -1) return
-  
+
     const activeButton = buttonElements[state.activeIndex]
     const activePanel = panelElements[state.activeIndex]
     const nextButton = buttonElements[nextIndex]
     const nextPanel = panelElements[nextIndex]
-  
+
     if (activePanel) {
       activePanel.classList.remove('is-active')
       activePanel.setAttribute('tabindex', -1)
     }
-  
+
     if (activeButton) {
       activeButton.classList.remove('is-active')
       activeButton.setAttribute('aria-selected', 'false')
       activeButton.setAttribute('tabindex', -1)
     }
-  
+
     if (nextButton) {
       nextButton.classList.add('is-active')
       nextButton.setAttribute('aria-selected', 'true')
       nextButton.setAttribute('tabindex', 0)
     }
-  
+
     if (nextPanel) {
       nextPanel.classList.add('is-active')
       nextPanel.setAttribute('tabindex', 0)
     }
-  
+
     state.activeIndex = nextIndex
   }
 
+  function handleTabChange(currentButton) {
+    if (!currentButton) return
 
+    updateUi(currentButton)
 
-export function initTabs () {
-    
+    const category = currentButton.dataset.category
+    const panel = getActivePanel()
 
+    if (typeof onTabChange === 'function') {
+      onTabChange({ category, panel, currentButton, activeIndex: state.activeIndex })
+    }
+  }
 
-buttonElements.forEach(element => {
-  element.addEventListener('click', event => {
-    updateUi(event.currentTarget)
-  })
-})
-buttonElements.forEach((element) => {
-    element.addEventListener('keydown',(event) =>{
-        const currentButton = event.currentTarget
-        const currentIndex = buttonElements.findIndex(buttonElement => buttonElement === currentButton)
-        let nextIndex = currentIndex
-        if(event.key === 'ArrowRight' || event.key === 'ArrowLeft' || event.key === 'End' || event.key === 'Home') {
-            event.preventDefault()
-            if(event.key === 'ArrowRight') {
-                if(currentIndex === buttonElements.length-1) {
-                    nextIndex = 0
-                } else {
-                    nextIndex = currentIndex+1
-                }
-            }
-            if(event.key === 'ArrowLeft') {
-                if(currentIndex === 0) {
-                    nextIndex = buttonElements.length-1
-                } else {
-                    nextIndex = currentIndex-1
-                }
-            }
-            if(event.key === 'Home') nextIndex = 0
-            if(event.key === 'End') nextIndex = buttonElements.length-1
-            const nextButton = buttonElements[nextIndex]
-            nextButton.focus()
+  const currentButton = buttonElements[state.activeIndex]
+  if (currentButton) {
+    handleTabChange(currentButton)
+  }
 
-            updateUi(nextButton)
-
-            
-        }
+  buttonElements.forEach((buttonElement) => {
+    buttonElement.addEventListener('click', (event) => {
+      const currentButton = event.currentTarget
+      handleTabChange(currentButton)
     })
+  })
 
-})
+  buttonElements.forEach((buttonElement) => {
+    buttonElement.addEventListener('keydown', (event) => {
+      const currentButton = event.currentTarget
+      const currentIndex = getButtonIndex(currentButton)
+
+      let nextIndex = currentIndex
+
+      if (
+        event.key !== 'ArrowRight' &&
+        event.key !== 'ArrowLeft' &&
+        event.key !== 'Home' &&
+        event.key !== 'End'
+      ) {
+        return
+      }
+
+      event.preventDefault()
+
+      if (event.key === 'ArrowRight') {
+        nextIndex = currentIndex === buttonElements.length - 1 ? 0 : currentIndex + 1
+      }
+
+      if (event.key === 'ArrowLeft') {
+        nextIndex = currentIndex === 0 ? buttonElements.length - 1 : currentIndex - 1
+      }
+
+      if (event.key === 'Home') {
+        nextIndex = 0
+      }
+
+      if (event.key === 'End') {
+        nextIndex = buttonElements.length - 1
+      }
+
+      const nextButton = buttonElements[nextIndex]
+      nextButton.focus()
+      handleTabChange(nextButton)
+    })
+  })
 }

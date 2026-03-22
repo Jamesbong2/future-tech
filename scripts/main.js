@@ -1,10 +1,14 @@
-import {initHeader} from '../scripts/Header.js'
-import {initTabs} from '../scripts/Tabs.js'
+import {initHeader} from './Header.js'
+import {initPosts} from './Posts.js'
 import { initVideoPlayer } from './VideoPlayer.js'
 import { initSelect } from './Select.js'
 import { initFeedbackForm } from './FeedBackForm.js'
+import './Posts.js'
+
 initHeader()
-initTabs()
+initPosts()
 initVideoPlayer()
 initSelect()
 initFeedbackForm()
+
+
