@@ -89,7 +89,8 @@ function createPostCard (post) {
   
     
   }
-  async function fetchPostsByCategory (category) {
+  async function fetchPostsByCategory (category, signal) {
+    
   
     const url = 
       category === 'all'  
@@ -97,7 +98,7 @@ function createPostCard (post) {
       : 
       `http://localhost:3001/posts?category=${category}`
    
-    const response = await fetch(url)
+    const response = await fetch(url, {signal})
     if(!response.ok) {
       throw new Error('Failed to fetch')
     }
@@ -105,14 +106,27 @@ function createPostCard (post) {
     return data 
   }
 export function initPosts () {
+    let fetchPostsAbortController = null 
+
     const tabsElement = document.querySelector('[data-js-tabs-root]')
     initTabs(tabsElement , async  ({category,panel}) => {
         const listElement = panel.querySelector('.list')
         try {
-            const posts = await fetchPostsByCategory(category)
+            if(fetchPostsAbortController) {
+                fetchPostsAbortController.abort()
+                console.log('Старый запрос отменен')
+            }
+            fetchPostsAbortController = new AbortController()    
+            const signal = fetchPostsAbortController.signal
+            const posts = await fetchPostsByCategory(category,signal)
+            
             renderPostsList(posts,listElement)
     
         } catch(error) {
+            if (error.name === 'AbortError') return
+                
+             
+              
             console.log(error)
     
         }
