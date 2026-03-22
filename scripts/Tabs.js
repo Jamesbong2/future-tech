@@ -29,6 +29,7 @@ export function initTabs(rootElement, onTabChange) {
     const nextIndex = getButtonIndex(currentButton)
 
     if (nextIndex === -1) return
+    if (nextIndex === state.activeIndex) return
 
     const activeButton = buttonElements[state.activeIndex]
     const activePanel = panelElements[state.activeIndex]
