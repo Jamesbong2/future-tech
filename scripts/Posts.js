@@ -89,6 +89,7 @@ function createPostCard (post) {
   
     
   }
+ 
   async function fetchPostsByCategory (category, signal) {
     
   
@@ -105,18 +106,22 @@ function createPostCard (post) {
     const data = await response.json()
     return data 
   }
+
 export function initPosts () {
+    
+    
     let fetchPostsAbortController = null 
+    function abortFetchPostsRequest () {
+        if(fetchPostsAbortController) fetchPostsAbortController.abort()
+      }
 
     const tabsElement = document.querySelector('[data-js-tabs-root]')
-    initTabs(tabsElement , async  ({category,panel}) => {
+    const destroyTabs = initTabs(tabsElement , async  ({category,panel}) => {
         const listElement = panel.querySelector('.list')
         try {
-            if(fetchPostsAbortController) {
-                fetchPostsAbortController.abort()
-                console.log('Старый запрос отменен')
-            }
-            fetchPostsAbortController = new AbortController()    
+            abortFetchPostsRequest()
+            
+            fetchPostsAbortController = new AbortController()
             const signal = fetchPostsAbortController.signal
             const posts = await fetchPostsByCategory(category,signal)
             
@@ -127,11 +132,19 @@ export function initPosts () {
                 
              
               
-            console.log(error)
+            console.error(error)
     
         }
     
     
       })
+      return function destroyPosts() {
+        destroyTabs()
+      
+        if (fetchPostsAbortController) {
+            abortFetchPostsRequest()
+        }
+        fetchPostsAbortController = null 
+      }
 
 }

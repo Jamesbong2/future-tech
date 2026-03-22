@@ -1,10 +1,11 @@
 export function initTabs(rootElement, onTabChange) {
-  if (!rootElement) return
+  
+  if (!rootElement) return () => {}
 
   const buttonElements = [...rootElement.querySelectorAll('[data-js-tabs-button]')]
   const panelElements = [...rootElement.querySelectorAll('[data-js-tabs-content]')]
 
-  if (!buttonElements.length || !panelElements.length) return
+  if (!buttonElements.length || !panelElements.length) return () => {}
 
   const state = {
     activeIndex: buttonElements.findIndex((buttonElement) =>
@@ -65,6 +66,7 @@ export function initTabs(rootElement, onTabChange) {
     updateUi(currentButton)
 
     const category = currentButton.dataset.category
+   
     const panel = getActivePanel()
 
     if (typeof onTabChange === 'function') {
@@ -77,50 +79,67 @@ export function initTabs(rootElement, onTabChange) {
     handleTabChange(currentButton)
   }
 
-  buttonElements.forEach((buttonElement) => {
-    buttonElement.addEventListener('click', (event) => {
-      const currentButton = event.currentTarget
-      handleTabChange(currentButton)
+
+  const clickHandler = (event) => {
+    const currentButton = event.currentTarget
+    handleTabChange(currentButton)
+  }
+  const keydownHandler = (event) => {
+    const currentButton = event.currentTarget
+    const currentIndex = getButtonIndex(currentButton)
+
+    let nextIndex = currentIndex
+
+    if (
+      event.key !== 'ArrowRight' &&
+      event.key !== 'ArrowLeft' &&
+      event.key !== 'Home' &&
+      event.key !== 'End'
+    ) {
+      return
+    }
+
+    event.preventDefault()
+
+    if (event.key === 'ArrowRight') {
+      nextIndex = currentIndex === buttonElements.length - 1 ? 0 : currentIndex + 1
+    }
+
+    if (event.key === 'ArrowLeft') {
+      nextIndex = currentIndex === 0 ? buttonElements.length - 1 : currentIndex - 1
+    }
+
+    if (event.key === 'Home') {
+      nextIndex = 0
+    }
+
+    if (event.key === 'End') {
+      nextIndex = buttonElements.length - 1
+    }
+
+    const nextButton = buttonElements[nextIndex]
+    nextButton.focus()
+    handleTabChange(nextButton)
+
+
+  }
+
+ buttonElements.forEach((buttonElement) => {
+
+  buttonElement.addEventListener('click',clickHandler)
+  buttonElement.addEventListener('keydown', keydownHandler)
+
+ })
+
+  
+  
+  function destroy () {
+    buttonElements.forEach((buttonElement) => {
+      buttonElement.removeEventListener('click',clickHandler)
+      buttonElement.removeEventListener('keydown',keydownHandler)
+
     })
-  })
-
-  buttonElements.forEach((buttonElement) => {
-    buttonElement.addEventListener('keydown', (event) => {
-      const currentButton = event.currentTarget
-      const currentIndex = getButtonIndex(currentButton)
-
-      let nextIndex = currentIndex
-
-      if (
-        event.key !== 'ArrowRight' &&
-        event.key !== 'ArrowLeft' &&
-        event.key !== 'Home' &&
-        event.key !== 'End'
-      ) {
-        return
-      }
-
-      event.preventDefault()
-
-      if (event.key === 'ArrowRight') {
-        nextIndex = currentIndex === buttonElements.length - 1 ? 0 : currentIndex + 1
-      }
-
-      if (event.key === 'ArrowLeft') {
-        nextIndex = currentIndex === 0 ? buttonElements.length - 1 : currentIndex - 1
-      }
-
-      if (event.key === 'Home') {
-        nextIndex = 0
-      }
-
-      if (event.key === 'End') {
-        nextIndex = buttonElements.length - 1
-      }
-
-      const nextButton = buttonElements[nextIndex]
-      nextButton.focus()
-      handleTabChange(nextButton)
-    })
-  })
+  }
+  return destroy
 }
+
