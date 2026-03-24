@@ -98,6 +98,9 @@ a{
 }
 a,
 button {
+    &--error {
+       color: #E8ECF3;
+    }
     &:disabled {
         opacity: 0.5;
         cursor: not-allowed;

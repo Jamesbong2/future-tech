@@ -1,0 +1,31 @@
+@use '../helpers' as *;
+
+.error-state {
+    max-width: fluid(250,500);
+    width: 100%;
+    padding-block: fluid(25,35);
+    &__content {
+        display: grid;
+        row-gap: fluid(12,25);
+        text-align: center;
+        background: var(--color-dark-10);
+        border: var(--border);
+        --webkit-box-shadow: 23px 7px 28px -12px var(--color-dark-20);
+        -moz-box-shadow: 23px 7px 28px -12px var(--color-dark-20);
+        box-shadow: 23px 7px 28px -12px var(--color-dark-20);
+        padding: fluid(15,25);
+        border-radius: rem(7);
+    }
+    &__title{
+        color: #D96C6C;
+    }
+    &__message {
+        color: #A6ADBB;
+    }
+    &__button {
+        width: 50%;
+        justify-self: center;
+        min-width: rem(180);
+    }
+   
+}

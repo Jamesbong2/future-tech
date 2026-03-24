@@ -247,6 +247,7 @@ svg * {
   --color-grey-60:#98989A;
   --color-accent:#FFD11A;
   --color-red: #FF5500;
+  --color-muted-red: #ba3c3c;
   --border: 0.0625rem solid var(--color-dark-15);
   --font-family-base:'Inter',sans-serif;
   --font-family-accent:'Kumbh Sans',sans-serif;
@@ -455,6 +456,10 @@ a[class] {
   transition-duration: 0s !important;
 }
 
+a--error,
+button--error {
+  color: #E8ECF3;
+}
 a:disabled,
 button:disabled {
   opacity: 0.5;
@@ -1538,6 +1543,35 @@ button[aria-label]::before {
   .download-info__team {
     --personImageSize:2.5rem;
   }
+}
+
+.error-state {
+  max-width: clamp(15.625rem, 11.6421568627rem + 16.339869281vw, 31.25rem);
+  width: 100%;
+  padding-block: clamp(1.5625rem, 1.4031862745rem + 0.6535947712vw, 2.1875rem);
+}
+.error-state__content {
+  display: grid;
+  row-gap: clamp(0.75rem, 0.5428921569rem + 0.8496732026vw, 1.5625rem);
+  text-align: center;
+  background: var(--color-dark-10);
+  border: var(--border);
+  --webkit-box-shadow: 23px 7px 28px -12px var(--color-dark-20);
+  -moz-box-shadow: 23px 7px 28px -12px var(--color-dark-20);
+  box-shadow: 23px 7px 28px -12px var(--color-dark-20);
+  padding: clamp(0.9375rem, 0.7781862745rem + 0.6535947712vw, 1.5625rem);
+  border-radius: 0.4375rem;
+}
+.error-state__title {
+  color: #D96C6C;
+}
+.error-state__message {
+  color: #A6ADBB;
+}
+.error-state__button {
+  width: 50%;
+  justify-self: center;
+  min-width: 11.25rem;
 }
 
 .bordered-grid {
